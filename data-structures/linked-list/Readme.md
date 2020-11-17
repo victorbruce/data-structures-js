@@ -18,7 +18,7 @@ But in a linked list, elements are not indexed hence when you want to have acces
 
 ## Advantages of Linked List
 
-1. Insertions and Deletions can be very quick(has a time complexity of O(1)). Adding an item to the beginning(prepending) is very slow
+1. Insertions and Deletions can be very quick(has a time complexity of O(1)). Adding an item to the beginning(prepending) is very fast.
 
 ## Disadvantages of Linked List
 
