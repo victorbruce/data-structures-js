@@ -1,11 +1,13 @@
+/** Using the Constructor function */
 const Stack = function() {
   this.storage = "";
+  this.size = 0;
 }
 
 Stack.prototype.push = function(val) {
   this.storage = this.storage.concat("***", val);
 
-  return this.size();
+  this.size++
 };
 
 Stack.prototype.pop = function() {
@@ -16,17 +18,29 @@ Stack.prototype.pop = function() {
   this.storage = this.storage.substring(0, this.storage.lastIndexOf("***"));
 
   // Return storage size
-  this.size();
+  this.size--;
   // Return the poped item
   return str;
 };
 
-Stack.prototype.size = function() {
-  const newArr = this.storage.split("***");
+Stack.prototype.peek = function() {
+  const str = this.storage.substring(this.storage.lastIndexOf("***") + 3);
+  console.log(str);
+}
 
-  return newArr.length - 1;
+Stack.prototype.length = function() {
+  return this.size;
 };
 
-const myWeeklyGoals = new Stack();
-myWeeklyGoals.push("Learn one DS a day");
-console.log(myWeeklyGoals.storage);
+Stack.prototype.print = function() {
+  console.log(this.storage);
+}
+
+const myStack = new Stack();
+
+myStack.push("design");
+myStack.push("eat");
+myStack.push("code");
+myStack.peek();
+myStack.pop();
+myStack.peek();
