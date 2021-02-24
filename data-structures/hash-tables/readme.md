@@ -5,12 +5,18 @@ For any problem, have hash tables at the top of your mind as a possible techniqu
 the problem.
 
 Hash tables are very performant. The average complexity time in Big O Notation is O(1) and the worst
-case is O(n), meaning is linear.
+case is O(n).
 
 ## Javascript Implementation
 
 Objects in Javascript implements hash tables under the hood.
 In Hash table, a `hashing function` is needed to map a key to an index.
+A **hash function** takes in a string as a key and returns a unique number. For a highly effective and efficient hash table, the following criteria must me met:
+
+- The same string(key) passed to a hash table must return the same number. For example, if "apple" is passed to a hash function  and the returned number is 3, that should always be the case.
+- Different strings must return different numbers at all times.
+- The hash function must be collision free.
+- The number returned by the hash function should not be more or less than the size of the array.
 
 Eg. **myHash("hello")** => 3 
 
