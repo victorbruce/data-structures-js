@@ -1,22 +1,19 @@
 # Data Structures and Algorithm
 
-Practicing data structures and algorithm to improve my problem solving skills.
+A repo that contains a list of the major data structures and algorithms and  its implementations.
 
 ## Project Folder Structure
+📁 BigO
 
-Each data structure has it's own branch. To access a data structure let's say `linked-list` for example,
-you will have to:
+📁 data-structures: Contains a list of data structures with some explanation and implementation.
 
-1. Navigate to the linked-list branch.
-2. Navigate to the folder, data structures. In there, you will see a folder with the same name as the
-   branch. In this example, `linked-list`
-3. Navigate to that folder and view the code as well as the readme file which explains the data structure.
+   - <input type="checkbox" /> Hash Tables
+   - <input type="checkbox" /> Array
+   - <input type="checkbox" /> String
+   - <input type="checkbox" /> Linked List
+   - <input type="checkbox"  /> Binary Tree
+   - <input type="checkbox"  /> Binary Search Tree
+   - <input type="checkbox" /> N-ary Tree
+   - <input type="checkbox" /> Trie
+   - <input type="checkbox" /> DecisionTree
 
-## Running a code.
-
-**Pre-requisite**:
-You should have `nodejs` installed on your machine.
-
-Once you have navigated to the data structure/algorithm of interest, in this example `linked-list`; 
-
-**run the command:** `node name-of-file.js`
