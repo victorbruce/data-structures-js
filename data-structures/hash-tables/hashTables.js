@@ -1,8 +1,20 @@
-/* Hash Table */
+/*
+  DATA STRUCTURE: HASH TABLE
 
-let hashFunction = (key, max) => {
-  //key: string and max: size of our buckets
+  APPROACH:
 
+  To deal with the issue of collision, one way
+  to go about this is to store a bucket([]) containing 
+  the key and value at an index within an ARRAY
+
+  Example [[key, value]];
+
+  This approach is a little slow because, you will
+  have to iterate over the bucket to get the key
+  in order to have access to the value.
+*/
+
+const hashFunction = (key, max) => {
   let hash = 0;
   for (let i = 0; i < key.length; i++) {
     hash += key.charCodeAt(i);
@@ -10,46 +22,44 @@ let hashFunction = (key, max) => {
 
   return hash % max;
 };
-
 class HashTable {
   constructor() {
-    // storage array to store all our data
     this.storage = [];
-    // the number of buckets in the array
-    this.storageLimit = 4;
+    this.maxLimit = 4;
   }
 
-  // utility function to print out the storage array.
   print = () => {
     console.log(this.storage);
   };
 
-  // add data to the storage array
   set = (key, value) => {
-    // figure out the index of the array by passing it through a hash function
-    let index = hashFunction(key, this.storageLimit);
+    const index = hashFunction(key, this.maxLimit);
 
-    // check the storage if there is nothing in the index returned by the hash function
+    // check if the index is empty or undefined
     if (this.storage[index] === undefined) {
       this.storage[index] = [[key, value]];
     } else {
-      // if the index location of the storage is not undefined, meaning there is a value,
       let inserted = false;
+      // if index has a value,
+      // iterate over the bucket and store key-value pair
       for (let i = 0; i < this.storage[index].length; i++) {
-        if (storage[index][i][0] == key) {
+        // check if key already exist in the bucket
+        if (this.storage[index][i][0] === key) {
+          // overide the keys' value
           this.storage[index][i][1] = value;
           inserted = true;
         }
-      }
-      if (inserted === false) {
-        this.storage[index].push([key, value]);
+        // otherwise, insert a bucket in that location
+        if (inserted === false) {
+          this.storage[index].push([key, value]);
+        }
       }
     }
   };
 
   get = (key) => {
-    let index = hashFunction(key, this.storageLimit);
-
+    const index = hashFunction(key, this.maxLimit);
+    
     if (this.storage[index] === undefined) {
       return undefined;
     } else {
@@ -61,13 +71,13 @@ class HashTable {
     }
   };
 
-  remove = (key) => {
-    let index = hashFunction(key, this.storageLimit);
-
+  delete = (key) => {
+    const index = hashFunction(key, this.maxLimit);
+    
     if (this.storage[index].length === 1 && this.storage[index][0][0] === key) {
-      delete this.storage[index];
+      return this.storage[index];
     } else {
-      for (let i = 0; i < this.storage[index]; i++) {
+      for (let i = 0; i < this.storage[index].length; i++) {
         if (this.storage[index][i][0] === key) {
           delete this.storage[index][i];
         }
@@ -76,12 +86,6 @@ class HashTable {
   };
 }
 
-console.log(hashFunction("victor", 10));
-
-const ht = new HashTable();
-ht.set("victor", "person");
-ht.set("accra", "capital");
-ht.set("profession", "programmer");
-
-console.log(ht.get("victor"));
-ht.print();
+const myHash = new HashTable();
+myHash.set("apple", 2.00);
+myHash.print();
