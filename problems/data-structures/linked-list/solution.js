@@ -1,4 +1,13 @@
 // Node
+/*
+Example:
+const n = new Node('There');
+n.data // 'There'
+n.next // null
+
+const n2 = new Node('Hi', n);
+n2.next // n
+*/
 class Node {
   constructor(data, next = null) {
     this.data = data;
@@ -7,17 +16,35 @@ class Node {
 }
 
 // Linked List
+/*
+Example:
+const list = new LinkedList();
+list.head // null
+*/
 class LinkedList {
   constructor() {
     this.head = null;
   }
 
+  /*
+  Example:
+  const list = new LinkedList();
+  list.insertFirst('Hi there');
+  */
   insertFirst(data) {
     const node = new Node(data, this.head);
 
     this.head = node;
   }
 
+  /*
+   Example:
+   const list = new LinkedList();
+   list.insertFirst('a');
+   list.insertFirst('b');
+   list.insertFirst('c');
+   list.size() // returns 3
+  */
   size() {
     let count = 0;
 
@@ -31,10 +58,24 @@ class LinkedList {
     return count;
   }
 
+  /*
+  Example:
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.getFirst(); // returns Node instance with data 'b'
+  */
   getFirst() {
     return this.head;
   }
 
+  /*
+  Example:
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.geLast(); // returns Node instance with data 'a'
+  */
   getLast() {
     if (!this.head) {
       return null;
@@ -50,16 +91,41 @@ class LinkedList {
     }
   }
 
+  /*
+  Example:
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.clear();
+  list.size(); // returns 0
+*/
   clear() {
     this.head = null;
   }
 
+  /*
+  Example:
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.removeFirst(); // deletes node with data 'a'
+  list.getFirst(); // returns node with data of 'b'
+  */
   removeFirst() {
     if (!this.head) return null;
 
     this.head = this.head.next;
   }
 
+  /*
+  Example:
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.removeLast(); // deletes node with data 'a'
+  list.size(); // returns 1
+  list.getLast(); // returns node with data of 'b'
+  */
   removeLast() {
     if (!this.head) return null;
 
@@ -80,6 +146,14 @@ class LinkedList {
     previousNode.next = null;
   }
 
+  /*
+  Example:
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.insertLast('c');
+  list.getLast() // returns node with data 'c'
+  */
   insertLast(data) {
     const lastNode = this.getLast();
 
@@ -91,6 +165,14 @@ class LinkedList {
     }
   }
 
+  /*
+  Example: 
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.insertFirst('c');
+  list.getAt(1) // returns node with data 'b'
+  */
   getAt(index) {
     let count = 0;
     let node = this.head;
@@ -106,6 +188,16 @@ class LinkedList {
     return null;
   }
 
+  /*
+  Example: 
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.insertFirst('c');
+  list.removeAt(1) // deletes node with data 'b'
+  list.getAt(1); returns node with data 'a'
+  list.size(); returns 2
+  */
   removeAt(index) {
     if (!this.head) {
       return;
@@ -124,6 +216,16 @@ class LinkedList {
     previousNode.next = previousNode.next.next;
   }
 
+  /*
+  Example: 
+  const list = new LinkedList();
+  list.insertFirst('a');
+  list.insertFirst('b');
+  list.insertFirst('c');
+  list.insertAt('Hi', 1);
+  list.getAt(1); returns node with data 'Hi'
+
+  */
   insertAt(data, index) {
     if (!this.head) {
       this.head = new Node(data);
