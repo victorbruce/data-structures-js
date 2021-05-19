@@ -49,10 +49,10 @@ class HashTable {
           this.storage[index][i][1] = value;
           inserted = true;
         }
-        // otherwise, insert a bucket in that location
-        if (inserted === false) {
-          this.storage[index].push([key, value]);
-        }
+      }
+      // otherwise, insert a bucket in that location
+      if (inserted === false) {
+        this.storage[index].push([key, value]);
       }
     }
   };
@@ -88,4 +88,6 @@ class HashTable {
 
 const myHash = new HashTable();
 myHash.set("apple", 2.00);
-myHash.print();
+myHash.print(key) {
+  
+};
