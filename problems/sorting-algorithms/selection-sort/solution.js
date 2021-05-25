@@ -2,9 +2,9 @@
 // Implement selection sort
 
 function selectionSort(arr) {
-  for (i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     let indexOfMin = i;
-    for (j= i + 1; j < arr.length; j++) {
+    for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] < arr[indexOfMin]) {
         indexOfMin = j;
       }
