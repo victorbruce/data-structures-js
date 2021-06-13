@@ -26,6 +26,7 @@ class BST {
     } else {
       if (this.right === null) {
         this.right = new BST(value);
+ 
       } else {
         this.right.insert(value);
       }
